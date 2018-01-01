@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>用JS做一个简单的导航 | Hello World</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Hello World">
+    <meta name="author" content="Jamamm">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.ruanyifeng.com/home.html" class="animsition-link">阮一峰的博客</a></li>
+                    
+                    <li><a href="http://www.zhangxinxu.com/" class="animsition-link">张鑫旭的博客</a></li>
+                    
+                    <li><a href="https://developer.mozilla.org/zh-CN/" class="animsition-link">MDN Web Docs</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Hello World</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/Jamamm" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="https://weibo.com/5399009557/profile?topnav=1&wvr=6" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-11-30T06:42:55.000Z" itemprop="datePublished">
+          2017-11-30
+      </time>
+    
+</span>
+                <h1>用JS做一个简单的导航</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h3>预览</h3><br><img src="/img20171130/nav.jpg" alt="预览"><br><br>要实现的功能<br>1，在用户按下键时在新窗口打开相应的网站<br>2，对应网站的logo显示在按键上<br>3，按键可以自定义，且可以保存（鼠标悬浮在键盘上出现编辑，点击后弹出编辑框，并且可以保存）<br><br><h3>步骤</h3><br><h3>一，<br>  首先要声明两个hash,用来存按键（qwer。。。）和按键对应的网址（q: qq.com;）<br></h3><br><pre><br>  var hashA = init()<br>    var keys = hashA[“keys”]<br>    var hash = hashA[“hash”]<br>  function init() {<br>      var keys = {<br>        0: [“q”, “w”, “e”, “r”, “t”, “y”, “u”, “i”, “o”, “p”],<br>        1: [“a”, “s”, “d”, “f”, “g”, “h”, “j”, “k”, “l”],<br>        2: [“z”, “x”, “c”, “v”, “b”, “n”, “m”],<br>        length: 3<br>      }<br>      var hash = {<br>        q: ‘mail.qq.com’, w: ‘weibo.com’, e: undefined,<br>        r: ‘www.people.com.cn’, t: ‘taobao.com’,<br>        y: ‘www.youtube.com’, u: undefined,<br>        i: ‘iqiyi.com’, o: undefined,<br>        p: ‘52pojie.cn’, a: ‘acfun.tv’,<br>        s: ‘souhu.com’, d: ‘douyu.com’,<br>        f: ‘www.facebook.com’, g: ‘github.com’,<br>        h: ‘huya.com’, j: ‘js.jirengu.com’,<br>        k: undefined, l: undefined, z: ‘www.zhihu.com’,<br>        x: ‘xiedaimala.com’, c: undefined, v: undefined,<br>        b: ‘baidu.com’, n: undefined, m: undefined<br>      }<br></pre><br><br><h3>二、遍历keys，生成kbd标签（生标签加class）</h3><br><pre><br>  generateKeybord(keys, hash)<br>  function tag(tagName) {<br>      return document.createElement(tagName)<br>    }<br>    function createSpan(textContent) {<br>      var span = tag(‘span’)<br>      span.textContent = textContent<br>      span.className = “text”<br>      return span<br>    }<br>    function generateKeybord(keys, hash) {<br>      for (var index = 0; index &lt; keys[‘length’]; index = index + 1) {<br>        var div = tag(‘div’)<br>        div.className = ‘row’<br>        main.appendChild(div)<br>        var row = keys[index] // 第一个数组,第二个数组,第三个数组<br>        for (var index2 = 0; index2 &lt; row[‘length’]; index2 = index2 + 1) {<br>          var span = createSpan(row[index2])<br>          var button = creatButton(row[index2])<br>          var img = creatImage(hash[row[index2]])<br>          var kbd = tag(‘kbd’)<br>          kbd.className = ‘key’<br>          kbd.appendChild(span)<br>          kbd.appendChild(img)<br>          kbd.appendChild(button)<br>          div.appendChild(kbd)<br>        }<br>      }<br>    }<br></pre><br><img src="/img20171130/makeKeyboard.jpg" alt="生成键盘"><br><br><h3>3、监听用户动作（监听到用户按了哪个键，然后在新标签页打开）</h3><br><pre><br>ListenToUser(hash)<br>function ListenToUser(hash) {<br>  document.onkeypress = function (xzkjcnxlkcjlk) {<br>  var key = xzkjcnxlkcjlk[‘key’] //q w e r…<br>  var website = hash[key]<br>  //location.href = ‘<a href="http://&#39;+website" target="_blank" rel="noopener">http://&#39;+website</a><br>  window.open(‘http://‘ + website, ‘_blank’)<br>  }<br>}<br></pre><br><br><h3>4，加其他功能，可编辑保存，按键上显示对应网址的图标</h3>
+
+<p><pre><br>function creatButton(id) {<br>      var button = tag(‘button’)<br>      button.textContent = ‘编辑’<br>      button.id = id<br>      button.onclick = function (xzkjcnxlkcjlk) {<br>        var button2 = xzkjcnxlkcjlk[‘target’]<br>        var img2 = button2.previousSibling<br>        var key = button2[‘id’]<br>        var x = prompt(‘给我一个网址’)<br>        hash[key] = x //hash变更<br>        img2.src = ‘http://‘ + x + ‘/favicon.ico’<br>        img2.onerror = function (xxx) {<br>          xxx.target.src = (‘./blank.png’)<br>        }<br>        localStorage.setItem(‘zzz’, JSON.stringify(hash)) //把变更后的hash存在zzz里面<br>      }<br>      return button<br>    }<br>    function creatImage(domain) {<br>      var img = tag(‘img’)<br>      if (domain) {<br>        img.src = ‘http://‘ + domain + ‘/favicon.ico’<br>      } else {<br>        img.src = ‘./blank.png’<br>      }<br>      img.onerror = function (xxx) {<br>        xxx.target.src = (‘./blank.png’)<br>      }<br>      return img<br>    }<br></pre><br>然后再加上自己喜欢的CSS样式，一个只属于自己导航就完成了~~~</p>
+<p><a href="http://dengjian.space/demos/nav-1/index.html">预览链接</a><br><a href="https://dribbble.com/shots/1442898-Keyboard-Freebie" target="_blank" rel="noopener">CSS参考</a><br><a href="https://github.com/Jamamm/demos/tree/master/nav-1" target="_blank" rel="noopener">完整代码</a></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2018/01/01/hello-world/" style="float: left;">
+        ← Hello World
+    </a>
+    
+    
+    <a class="pull-right" href="/2017/11/27/交换两个变量的值/">
+        交换两个变量的值 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Jamamm. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Jamamm" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://weibo.com/5399009557/profile?topnav=1&wvr=6" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      (function(){
+        console.log('font');
+        var getCss = function(path) {
+          var head = document.getElementsByTagName('head')[0];
+          link = document.createElement('link');
+          link.href = path;
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          head.appendChild(link);
+        };
+        getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+      })();
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
