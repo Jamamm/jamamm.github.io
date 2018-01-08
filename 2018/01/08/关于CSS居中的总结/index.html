@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于CSS居中的总结 | Hello World</title>
+  <title>Hello World</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -170,60 +170,242 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-01-08T06:47:12.000Z" itemprop="datePublished">
+      <time datetime="2018-01-08T06:47:12.289Z" itemprop="datePublished">
           2018-01-08
       </time>
     
 </span>
-                <h1>关于CSS居中的总结</h1>
+                <h1></h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>#水平方向居中<br>1、inline 和 inline-* 元素的水平方向居中<br>将一个块级元素中的 inline 或者类 inline 元素居中，在需要居中的元素的父元素上面加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">text-align:center;</span><br><span class="line">``` </span><br><span class="line">注意： 这个方法对 inline, inline-block, inline-table, inline-flex 元素都有效。</span><br><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <title>JS Bin</title><br>  <style><br>    header, nav {<br>    text-align: center;<br>    border: 1px solid red;</p>
-<p>}<br>  </style><br></head></p>
-<p><body></body></p>
-<p><header><br>      我要居中！！！<br></header></p>
-<p><nav role="navigation"><br>    <a href="#0">One</a><br>    <a href="#0">Two</a><br>    <a href="#0">Three</a><br>    <a href="#0">Four</a><br></nav><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2、块级元素的水平方向居中</span><br><span class="line">首先这个块级元素必须宽度固定，然后左外边距和右外边距设为auto</span><br></pre></td></tr></table></figure></p>
-<p> width: 100px;<br> margin: 0 auto;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><meta charset="utf-8"></p>
-<p><title>JS Bin</title></p>
-<p><style><br>main{<br>  text-align: center;<br>  border: 1px solid green;<br>}<br>main div {<br>  display: inline-block;<br>  border: 1px solid red;</p>
-<p>}<br></style></p>
-<p><body></body></p>
-<p><main><br>    <div><br>          123<br>    </div><br>    <div><br>        456<br>    </div><br>    <div><br>       789<br>    </div><br></main><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3、如果想让多个块级元素在同一行中水平居中时，</span><br><span class="line">①父元素上面加：</span><br></pre></td></tr></table></figure></p>
-<p>text-align:center;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">②块级元素修改</span><br></pre></td></tr></table></figure></p>
-<p>display: inline-block;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <title>JS Bin</title><br>  <style><br>   body{<br>     text-align: center;<br>     border: 1px solid black;<br>   }<br>    div{<br>      display: inline-block;<br>      border: 1px solid red;<br>    }<br>  </style><br></head></p>
-<p><body><br>  <div>我要</div><div>居中</div><br>  <div>！！！</div><br></body><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#垂直方向居中</span><br><span class="line">一、inline 和 inline-* 元素的垂直方向居中   </span><br><span class="line">1、单行的内联元素垂直居中</span><br><span class="line">①最简单的一种，上内边距和下内边距相等：</span><br><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <style><br>    main {background: white;<br>    margin: 20px 0;<br>    padding: 50px;<br>}<br>main a {background: black;<br>    color: white;<br>    padding: 40px 30px;<br>    text-decoration: none;</p>
-<p>  </style><br>  <title>JS Bin</title><br></head></p>
-<p><body></body></p>
-<p><main><br>    <a href="#0">We’re</a><br>    <a href="#0">Centered</a><br>    <a href="#0">Bits of</a><br>    <a href="#0">Text</a><br></main><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">②因为某些原因不能使用这种简单粗暴的方法（这种方法也有其局限性），或者你想垂直居中没有元素包裹的文本的时候，利用 line-height 属性。将容器的 line-height 的值设置为与容器高度相同的值，就能很轻松的居中文本。</span><br><span class="line"></span><br><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <style><br>   main {background: white;<br>    margin: 20px 0;<br>    padding: 40px;<br>}<br>main div {background: black;<br>    color: white;<br>    height: 100px;<br>    line-height: 100px;<br>    padding: 20px;<br>    width: 50%;<br>    white-space: nowrap;<br>}<br>  </style><br>  <title>JS Bin</title><br></head></p>
-<p><body></body></p>
-<p><main><br>    <div><br>        I’m a centered line.<br>    </div><br></main><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2、多行的内联元素垂直居中</span><br><span class="line"></span><br><span class="line">①上下内边距相等的方法同样可以用在多行的处理上，但是就像前面所说的，这种方法有局限性。当元素是一个表格单元或者通过 CSS 的设置表现成一个单元格时，这种方法就不奏效了。在这种情况下，使用 vertical-align 属性来解决这个问题</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <style><br>  body {background: #f06d06;<br>    font-size: 80%;<br>}<br>table {background: white;<br>    width: 240px;<br>    border-collapse: separate;<br>    margin: 20px;<br>    height: 250px;<br>}<br>table td {background: black;<br>    color: white;<br>    padding: 20px;<br>    border: 10px solid white;<br>    /<em> 单元格自带 vertical-align: middle; </em>/<br>}<br>.center-table {display: table;<br>    height: 250px;<br>    background: white;<br>    width: 240px;<br>    margin: 20px;<br>}<br>.center-table p {display: table-cell; // 将 p 表现成一个单元格<br>    margin: 0;<br>    background: black;<br>    color: white;<br>    padding: 20px;<br>    border: 10px solid white;<br>    vertical-align: middle; // 添加单元格默认的属性<br>}<br>  </style><br>  <title>JS Bin</title><br></head></p>
-<p><body></body></p>
-<p><table><br>    <tr><br>        <td><br>            I’m vertically centered multiple lines of text in a real table cell.<br>        </td><br>    </tr><br></table></p>
-<p><div class="center-table"><br>    <p>I’m vertically centered multiple lines of text in a CSS-created table layout.</p><br></div><br><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">②如果不能使用“表格大法”，可以试试 flexbox。一个 flex-child 在 flex-parent 中垂直居中松松的。</span><br><span class="line"></span><br><span class="line">例子：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <meta charset="utf-8"><br>  <style><br>  body {background: #f06d06;<br>    font-size: 80%;<br>}<br>div {background: white;<br>    width: 240px;<br>    margin: 20px;<br>}<br>.flex-center {background: black;<br>    color: white;<br>    border: 10px solid white;<br>    display: flex;<br>    flex-direction: column;<br>    justify-content: center;<br>    height: 200px;<br>}<br>.flex-center p {margin: 0;<br>    padding: 20px;<br>}<br>  </style><br>  <title>JS Bin</title><br></head></p>
-<p><body></body></p>
-<p><div class="flex-center"><br>    <p>I’m vertically centered multiple lines of text in a flexbox container.</p><br></div><br><br><br>```<br>持续更新…</p>
+      		<p>— title: 关于CSS居中的总结 date: 2018-01-08 14:47:12 tags: — #水平方向居中 1、inline 和 inline-* 元素的水平方向居中 将一个块级元素中的 inline 或者类 inline<br>元素居中，在需要居中的元素的父元素上面加：</p>
+<pre>
+text-align:center;
+</pre>
+注意： 这个方法对 inline, inline-block, inline-table, inline-flex 元素都有效。 例子：
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+  &lt;style&gt;
+    header, nav {
+    text-align: center;
+    border: 1px solid red;
+   }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+      我要居中！！！
+&lt;/header&gt;
+&lt;nav role='navigation'&gt;
+    &lt;a href="#0"&gt;One&lt;/a&gt;
+    &lt;a href="#0"&gt;Two&lt;/a&gt;
+    &lt;a href="#0"&gt;Three&lt;/a&gt;
+    &lt;a href="#0"&gt;Four&lt;/a&gt;
+&lt;/nav&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>2、块级元素的水平方向居中<br>首先这个块级元素必须宽度固定，然后左外边距和右外边距设为auto</p>
+<pre>
+ width: 100px;
+ margin: 0 auto;
+</pre> 
+例子：
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;JS Bin&lt;/title&gt;
+&lt;style&gt;
+main{
+  text-align: center;
+  border: 1px solid green;
+}
+main div {
+  display: inline-block;
+  border: 1px solid red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;div&gt;
+        123
+    &lt;/div&gt;
+    &lt;div&gt;
+        456
+    &lt;/div&gt;
+    &lt;div&gt;
+        789
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+3、如果想让多个块级元素在同一行中水平居中时，
+①父元素上面加：
+<pre> 
+text-align:center;
+</pre>
+②块级元素修改
+<pre>
+display: inline-block;
+</pre> 
+例子：
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+  &lt;style&gt;
+   body{
+     text-align: center;
+     border: 1px solid black;
+   }
+    div{
+      display: inline-block;
+      border: 1px solid red;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;我要&lt;/div&gt;&lt;div&gt;居中&lt;/div&gt;
+  &lt;div&gt;！！！&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+#垂直方向居中
+一、inline 和 inline-* 元素的垂直方向居中   
+1、单行的内联元素垂直居中
+①最简单的一种，上内边距和下内边距相等：
+例子：
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+    main {background: white;
+    margin: 20px 0;
+    padding: 50px;
+}
+main a {background: black;
+    color: white;
+    padding: 40px 30px;
+    text-decoration: none;
+
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;a href="#0"&gt;We're&lt;/a&gt;
+    &lt;a href="#0"&gt;Centered&lt;/a&gt;
+    &lt;a href="#0"&gt;Bits of&lt;/a&gt;
+    &lt;a href="#0"&gt;Text&lt;/a&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>②因为某些原因不能使用这种简单粗暴的方法（这种方法也有其局限性），或者你想垂直居中没有元素包裹的文本的时候，利用 line-height 属性。将容器的 line-height 的值设置为与容器高度相同的值，就能很轻松的居中文本。</p>
+<p>例子：</p>
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+   main {background: white;
+    margin: 20px 0;
+    padding: 40px;
+}
+main div {background: black;
+    color: white;
+    height: 100px;
+    line-height: 100px;
+    padding: 20px;
+    width: 50%;
+    white-space: nowrap;
+}
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;div&gt;
+        I'm a centered line.
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>2、多行的内联元素垂直居中</p>
+<p>①上下内边距相等的方法同样可以用在多行的处理上，但是就像前面所说的，这种方法有局限性。当元素是一个表格单元或者通过 CSS 的设置表现成一个单元格时，这种方法就不奏效了。在这种情况下，使用 vertical-align 属性来解决这个问题</p>
+<p>例子：</p>
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+  body {background: #f06d06;
+    font-size: 80%;
+}
+table {background: white;
+    width: 240px;
+    border-collapse: separate;
+    margin: 20px;
+    height: 250px;
+}
+table td {background: black;
+    color: white;
+    padding: 20px;
+    border: 10px solid white;
+    /* 单元格自带 vertical-align: middle; */
+}
+.center-table {display: table;
+    height: 250px;
+    background: white;
+    width: 240px;
+    margin: 20px;
+}
+.center-table p {display: table-cell; // 将 p 表现成一个单元格
+    margin: 0;
+    background: black;
+    color: white;
+    padding: 20px;
+    border: 10px solid white;
+    vertical-align: middle; // 添加单元格默认的属性
+}
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            I'm vertically centered multiple lines of text in a real table cell.
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class="center-table"&gt;
+    &lt;p&gt;I'm vertically centered multiple lines of text in a CSS-created table layout.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>②如果不能使用“表格大法”，可以试试 flexbox。一个 flex-child 在 flex-parent 中垂直居中松松的。</p>
+<p>例子：</p>
+<p><pre><br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>  &lt;meta charset=”utf-8”&gt;<br>  &lt;style&gt;<br>  body {background: #f06d06;<br>    font-size: 80%;<br>}<br>div {background: white;<br>    width: 240px;<br>    margin: 20px;<br>}<br>.flex-center {background: black;<br>    color: white;<br>    border: 10px solid white;<br>    display: flex;<br>    flex-direction: column;<br>    justify-content: center;<br>    height: 200px;<br>}<br>.flex-center p {margin: 0;<br>    padding: 20px;<br>}<br>  &lt;/style&gt;<br>  &lt;title&gt;JS Bin&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;div class=”flex-center”&gt;<br>    &lt;p&gt;I’m vertically centered multiple lines of text in a flexbox container.&lt;/p&gt;<br>&lt;/div&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></pre><br>持续更新…</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
