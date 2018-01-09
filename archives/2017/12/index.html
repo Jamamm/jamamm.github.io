@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>用JS做一个简单的导航 | Hello World</title>
+  <title>Archives: 2017/12 | Hello World</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -164,50 +164,69 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2017-11-30T06:42:55.000Z" itemprop="datePublished">
-          2017-11-30
-      </time>
-    
-</span>
-                <h1>用JS做一个简单的导航</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2></h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p></p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<h3>预览</h3><br><img src="/img20171130/nav.jpg" alt="预览"><br><br>要实现的功能<br>1，在用户按下键时在新窗口打开相应的网站<br>2，对应网站的logo显示在按键上<br>3，按键可以自定义，且可以保存（鼠标悬浮在键盘上出现编辑，点击后弹出编辑框，并且可以保存）<br><br><h3>步骤</h3><br><h3>一，<br>  首先要声明两个hash,用来存按键（qwer。。。）和按键对应的网址（q: qq.com;）<br></h3><br><pre><br>  var hashA = init()<br>    var keys = hashA[“keys”]<br>    var hash = hashA[“hash”]<br>  function init() {<br>      var keys = {<br>        0: [“q”, “w”, “e”, “r”, “t”, “y”, “u”, “i”, “o”, “p”],<br>        1: [“a”, “s”, “d”, “f”, “g”, “h”, “j”, “k”, “l”],<br>        2: [“z”, “x”, “c”, “v”, “b”, “n”, “m”],<br>        length: 3<br>      }<br>      var hash = {<br>        q: ‘mail.qq.com’, w: ‘weibo.com’, e: undefined,<br>        r: ‘www.people.com.cn’, t: ‘taobao.com’,<br>        y: ‘www.youtube.com’, u: undefined,<br>        i: ‘iqiyi.com’, o: undefined,<br>        p: ‘52pojie.cn’, a: ‘acfun.tv’,<br>        s: ‘souhu.com’, d: ‘douyu.com’,<br>        f: ‘www.facebook.com’, g: ‘github.com’,<br>        h: ‘huya.com’, j: ‘js.jirengu.com’,<br>        k: undefined, l: undefined, z: ‘www.zhihu.com’,<br>        x: ‘xiedaimala.com’, c: undefined, v: undefined,<br>        b: ‘baidu.com’, n: undefined, m: undefined<br>      }<br></pre><br><br><h3>二、遍历keys，生成kbd标签（生标签加class）</h3><br><pre><br>  generateKeybord(keys, hash)<br>  function tag(tagName) {<br>      return document.createElement(tagName)<br>    }<br>    function createSpan(textContent) {<br>      var span = tag(‘span’)<br>      span.textContent = textContent<br>      span.className = “text”<br>      return span<br>    }<br>    function generateKeybord(keys, hash) {<br>      for (var index = 0; index &lt; keys[‘length’]; index = index + 1) {<br>        var div = tag(‘div’)<br>        div.className = ‘row’<br>        main.appendChild(div)<br>        var row = keys[index] // 第一个数组,第二个数组,第三个数组<br>        for (var index2 = 0; index2 &lt; row[‘length’]; index2 = index2 + 1) {<br>          var span = createSpan(row[index2])<br>          var button = creatButton(row[index2])<br>          var img = creatImage(hash[row[index2]])<br>          var kbd = tag(‘kbd’)<br>          kbd.className = ‘key’<br>          kbd.appendChild(span)<br>          kbd.appendChild(img)<br>          kbd.appendChild(button)<br>          div.appendChild(kbd)<br>        }<br>      }<br>    }<br></pre><br><img src="/img20171130/makeKeyboard.jpg" alt="生成键盘"><br><br><h3>3、监听用户动作（监听到用户按了哪个键，然后在新标签页打开）</h3><br><pre><br>ListenToUser(hash)<br>function ListenToUser(hash) {<br>  document.onkeypress = function (xzkjcnxlkcjlk) {<br>  var key = xzkjcnxlkcjlk[‘key’] //q w e r…<br>  var website = hash[key]<br>  //location.href = ‘<a href="http://&#39;+website" target="_blank" rel="noopener">http://&#39;+website</a><br>  window.open(‘http://‘ + website, ‘_blank’)<br>  }<br>}<br></pre><br><br><h3>4，加其他功能，可编辑保存，按键上显示对应网址的图标</h3>
-
-<p><pre><br>function creatButton(id) {<br>      var button = tag(‘button’)<br>      button.textContent = ‘编辑’<br>      button.id = id<br>      button.onclick = function (xzkjcnxlkcjlk) {<br>        var button2 = xzkjcnxlkcjlk[‘target’]<br>        var img2 = button2.previousSibling<br>        var key = button2[‘id’]<br>        var x = prompt(‘给我一个网址’)<br>        hash[key] = x //hash变更<br>        img2.src = ‘http://‘ + x + ‘/favicon.ico’<br>        img2.onerror = function (xxx) {<br>          xxx.target.src = (‘./blank.png’)<br>        }<br>        localStorage.setItem(‘zzz’, JSON.stringify(hash)) //把变更后的hash存在zzz里面<br>      }<br>      return button<br>    }<br>    function creatImage(domain) {<br>      var img = tag(‘img’)<br>      if (domain) {<br>        img.src = ‘http://‘ + domain + ‘/favicon.ico’<br>      } else {<br>        img.src = ‘./blank.png’<br>      }<br>      img.onerror = function (xxx) {<br>        xxx.target.src = (‘./blank.png’)<br>      }<br>      return img<br>    }<br></pre><br>然后再加上自己喜欢的CSS样式，一个只属于自己导航就完成了~~~</p>
-<p><a href="http://dengjian.space/demos/nav-1/index.html">预览链接</a><br><a href="https://dribbble.com/shots/1442898-Keyboard-Freebie" target="_blank" rel="noopener">CSS参考</a><br><a href="https://github.com/Jamamm/demos/tree/master/nav-1" target="_blank" rel="noopener">完整代码</a></p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2017/12/09/关于CSS居中/" style="float: left;">
-        ← 关于CSS居中
-    </a>
-    
-    
-    <a class="pull-right" href="/2017/11/27/交换两个变量的值/">
-        交换两个变量的值 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-
-
-</div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2017/12/09/关于CSS居中/">关于CSS居中</a></h4>
+                            
+                            <p><time datetime="2017-12-09T10:27:02.000Z"><a href="/2017/12/09/关于CSS居中/">2017-12-09</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>自律才自由。</p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 

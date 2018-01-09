@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>用JS做一个简单的导航 | Hello World</title>
+  <title>关于CSS居中 | Hello World</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -170,32 +170,287 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-11-30T06:42:55.000Z" itemprop="datePublished">
-          2017-11-30
+      <time datetime="2017-12-09T10:27:02.000Z" itemprop="datePublished">
+          2017-12-09
       </time>
     
 </span>
-                <h1>用JS做一个简单的导航</h1>
+                <h1>关于CSS居中</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h3>预览</h3><br><img src="/img20171130/nav.jpg" alt="预览"><br><br>要实现的功能<br>1，在用户按下键时在新窗口打开相应的网站<br>2，对应网站的logo显示在按键上<br>3，按键可以自定义，且可以保存（鼠标悬浮在键盘上出现编辑，点击后弹出编辑框，并且可以保存）<br><br><h3>步骤</h3><br><h3>一，<br>  首先要声明两个hash,用来存按键（qwer。。。）和按键对应的网址（q: qq.com;）<br></h3><br><pre><br>  var hashA = init()<br>    var keys = hashA[“keys”]<br>    var hash = hashA[“hash”]<br>  function init() {<br>      var keys = {<br>        0: [“q”, “w”, “e”, “r”, “t”, “y”, “u”, “i”, “o”, “p”],<br>        1: [“a”, “s”, “d”, “f”, “g”, “h”, “j”, “k”, “l”],<br>        2: [“z”, “x”, “c”, “v”, “b”, “n”, “m”],<br>        length: 3<br>      }<br>      var hash = {<br>        q: ‘mail.qq.com’, w: ‘weibo.com’, e: undefined,<br>        r: ‘www.people.com.cn’, t: ‘taobao.com’,<br>        y: ‘www.youtube.com’, u: undefined,<br>        i: ‘iqiyi.com’, o: undefined,<br>        p: ‘52pojie.cn’, a: ‘acfun.tv’,<br>        s: ‘souhu.com’, d: ‘douyu.com’,<br>        f: ‘www.facebook.com’, g: ‘github.com’,<br>        h: ‘huya.com’, j: ‘js.jirengu.com’,<br>        k: undefined, l: undefined, z: ‘www.zhihu.com’,<br>        x: ‘xiedaimala.com’, c: undefined, v: undefined,<br>        b: ‘baidu.com’, n: undefined, m: undefined<br>      }<br></pre><br><br><h3>二、遍历keys，生成kbd标签（生标签加class）</h3><br><pre><br>  generateKeybord(keys, hash)<br>  function tag(tagName) {<br>      return document.createElement(tagName)<br>    }<br>    function createSpan(textContent) {<br>      var span = tag(‘span’)<br>      span.textContent = textContent<br>      span.className = “text”<br>      return span<br>    }<br>    function generateKeybord(keys, hash) {<br>      for (var index = 0; index &lt; keys[‘length’]; index = index + 1) {<br>        var div = tag(‘div’)<br>        div.className = ‘row’<br>        main.appendChild(div)<br>        var row = keys[index] // 第一个数组,第二个数组,第三个数组<br>        for (var index2 = 0; index2 &lt; row[‘length’]; index2 = index2 + 1) {<br>          var span = createSpan(row[index2])<br>          var button = creatButton(row[index2])<br>          var img = creatImage(hash[row[index2]])<br>          var kbd = tag(‘kbd’)<br>          kbd.className = ‘key’<br>          kbd.appendChild(span)<br>          kbd.appendChild(img)<br>          kbd.appendChild(button)<br>          div.appendChild(kbd)<br>        }<br>      }<br>    }<br></pre><br><img src="/img20171130/makeKeyboard.jpg" alt="生成键盘"><br><br><h3>3、监听用户动作（监听到用户按了哪个键，然后在新标签页打开）</h3><br><pre><br>ListenToUser(hash)<br>function ListenToUser(hash) {<br>  document.onkeypress = function (xzkjcnxlkcjlk) {<br>  var key = xzkjcnxlkcjlk[‘key’] //q w e r…<br>  var website = hash[key]<br>  //location.href = ‘<a href="http://&#39;+website" target="_blank" rel="noopener">http://&#39;+website</a><br>  window.open(‘http://‘ + website, ‘_blank’)<br>  }<br>}<br></pre><br><br><h3>4，加其他功能，可编辑保存，按键上显示对应网址的图标</h3>
+      		<p></p><h3>#水平方向居中<h3><br>1、inline 和 inline-* 元素的水平方向居中 将一个块级元素中的 inline 或者类 inline<br>元素居中，在需要居中的元素的父元素上面加：<p></p>
+<pre>
+text-align:center;
+</pre>
+注意： 这个方法对 inline, inline-block, inline-table, inline-flex 元素都有效。 例子：
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+  &lt;style&gt;
+    header, nav {
+    text-align: center;
+    border: 1px solid red;
+   }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+      我要居中！！！
+&lt;/header&gt;
+&lt;nav role='navigation'&gt;
+    &lt;a href="#0"&gt;One&lt;/a&gt;
+    &lt;a href="#0"&gt;Two&lt;/a&gt;
+    &lt;a href="#0"&gt;Three&lt;/a&gt;
+    &lt;a href="#0"&gt;Four&lt;/a&gt;
+&lt;/nav&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
 
-<p><pre><br>function creatButton(id) {<br>      var button = tag(‘button’)<br>      button.textContent = ‘编辑’<br>      button.id = id<br>      button.onclick = function (xzkjcnxlkcjlk) {<br>        var button2 = xzkjcnxlkcjlk[‘target’]<br>        var img2 = button2.previousSibling<br>        var key = button2[‘id’]<br>        var x = prompt(‘给我一个网址’)<br>        hash[key] = x //hash变更<br>        img2.src = ‘http://‘ + x + ‘/favicon.ico’<br>        img2.onerror = function (xxx) {<br>          xxx.target.src = (‘./blank.png’)<br>        }<br>        localStorage.setItem(‘zzz’, JSON.stringify(hash)) //把变更后的hash存在zzz里面<br>      }<br>      return button<br>    }<br>    function creatImage(domain) {<br>      var img = tag(‘img’)<br>      if (domain) {<br>        img.src = ‘http://‘ + domain + ‘/favicon.ico’<br>      } else {<br>        img.src = ‘./blank.png’<br>      }<br>      img.onerror = function (xxx) {<br>        xxx.target.src = (‘./blank.png’)<br>      }<br>      return img<br>    }<br></pre><br>然后再加上自己喜欢的CSS样式，一个只属于自己导航就完成了~~~</p>
-<p><a href="http://dengjian.space/demos/nav-1/index.html">预览链接</a><br><a href="https://dribbble.com/shots/1442898-Keyboard-Freebie" target="_blank" rel="noopener">CSS参考</a><br><a href="https://github.com/Jamamm/demos/tree/master/nav-1" target="_blank" rel="noopener">完整代码</a></p>
+<p>2、块级元素的水平方向居中<br>首先这个块级元素必须宽度固定，然后左外边距和右外边距设为auto</p>
+<pre>
+ width: 100px;
+ margin: 0 auto;
+</pre> 
+例子：
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;JS Bin&lt;/title&gt;
+&lt;style&gt;
+main{
+  text-align: center;
+  border: 1px solid green;
+}
+main div {
+  display: inline-block;
+  border: 1px solid red;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;div&gt;
+        123
+    &lt;/div&gt;
+    &lt;div&gt;
+        456
+    &lt;/div&gt;
+    &lt;div&gt;
+        789
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+3、如果想让多个块级元素在同一行中水平居中时，
+①父元素上面加：
+<pre> 
+text-align:center;
+</pre>
+②块级元素修改
+<pre>
+display: inline-block;
+</pre> 
+例子：
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+  &lt;style&gt;
+   body{
+     text-align: center;
+     border: 1px solid black;
+   }
+    div{
+      display: inline-block;
+      border: 1px solid red;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;我要&lt;/div&gt;&lt;div&gt;居中&lt;/div&gt;
+  &lt;div&gt;！！！&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+<h3>#垂直方向居中</h3>
+一、inline 和 inline-* 元素的垂直方向居中   
+1、单行的内联元素垂直居中
+①最简单的一种，上内边距和下内边距相等：
+例子：
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+    main {background: white;
+    margin: 20px 0;
+    padding: 50px;
+}
+main a {background: black;
+    color: white;
+    padding: 40px 30px;
+    text-decoration: none;
 
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;a href="#0"&gt;We're&lt;/a&gt;
+    &lt;a href="#0"&gt;Centered&lt;/a&gt;
+    &lt;a href="#0"&gt;Bits of&lt;/a&gt;
+    &lt;a href="#0"&gt;Text&lt;/a&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>②因为某些原因不能使用这种简单粗暴的方法（这种方法也有其局限性），或者你想垂直居中没有元素包裹的文本的时候，利用 line-height 属性。将容器的 line-height 的值设置为与容器高度相同的值，就能很轻松的居中文本。</p>
+<p>例子：</p>
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+   main {background: white;
+    margin: 20px 0;
+    padding: 40px;
+}
+main div {background: black;
+    color: white;
+    height: 100px;
+    line-height: 100px;
+    padding: 20px;
+    width: 50%;
+    white-space: nowrap;
+}
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main&gt;
+    &lt;div&gt;
+        I'm a centered line.
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>2、多行的内联元素垂直居中</p>
+<p>①上下内边距相等的方法同样可以用在多行的处理上，但是就像前面所说的，这种方法有局限性。当元素是一个表格单元或者通过 CSS 的设置表现成一个单元格时，这种方法就不奏效了。在这种情况下，使用 vertical-align 属性来解决这个问题</p>
+<p>例子：</p>
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+  body {background: #f06d06;
+    font-size: 80%;
+}
+table {background: white;
+    width: 240px;
+    border-collapse: separate;
+    margin: 20px;
+    height: 250px;
+}
+table td {background: black;
+    color: white;
+    padding: 20px;
+    border: 10px solid white;
+    /* 单元格自带 vertical-align: middle; */
+}
+.center-table {display: table;
+    height: 250px;
+    background: white;
+    width: 240px;
+    margin: 20px;
+}
+.center-table p {display: table-cell; // 将 p 表现成一个单元格
+    margin: 0;
+    background: black;
+    color: white;
+    padding: 20px;
+    border: 10px solid white;
+    vertical-align: middle; // 添加单元格默认的属性
+}
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;
+            I'm vertically centered multiple lines of text in a real table cell.
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class="center-table"&gt;
+    &lt;p&gt;I'm vertically centered multiple lines of text in a CSS-created table layout.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+<p>②如果不能使用“表格大法”，可以试试 flexbox。一个 flex-child 在 flex-parent 中垂直居中松松的。</p>
+<p>例子：</p>
+<pre> 
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+  body {background: #f06d06;
+    font-size: 80%;
+}
+div {background: white;
+    width: 240px;
+    margin: 20px;
+}
+.flex-center {background: black;
+    color: white;
+    border: 10px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+}
+.flex-center p {margin: 0;
+    padding: 20px;
+}
+  &lt;/style&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="flex-center"&gt;
+    &lt;p&gt;I'm vertically centered multiple lines of text in a flexbox container.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+
+
+<p>持续更新…</p>
+</h3></h3>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/12/09/关于CSS居中/" style="float: left;">
-        ← 关于CSS居中
-    </a>
     
-    
-    <a class="pull-right" href="/2017/11/27/交换两个变量的值/">
-        交换两个变量的值 →
+    <a class="pull-right" href="/2017/11/30/用JS做一个简单的导航/">
+        用JS做一个简单的导航 →
     </a>
     
 </nav>
