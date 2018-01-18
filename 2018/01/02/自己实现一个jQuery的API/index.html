@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>关于JS的局部变量的使用 | Hello World</title>
+  <title>自己实现一个jQuery的API | Hello World</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -170,37 +170,405 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-12-15T06:57:35.000Z" itemprop="datePublished">
-          2017-12-15
+      <time datetime="2018-01-02T14:36:47.000Z" itemprop="datePublished">
+          2018-01-02
       </time>
     
 </span>
-                <h1>关于JS的局部变量的使用</h1>
+                <h1>自己实现一个jQuery的API</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>1，不用全局属性作为id名，否则会相互覆盖。<br>2，立即调用函数：声明一个函数，然后立即调用。<br>3，声明一个函数，不要函数名，后面紧跟.call()，就可以仅仅使用它的局部变量。</p>
-<p><pre><br>function(){<br>    var  partent=………….<br>    ………….<br>}.call()<br></pre><br>4，3这样做浏览器会报语法错误，这时候就需要用一点小技巧，比如<br>①用（）将它完整包起来</p>
-<p><pre><br>  (function(){<br>    var  partent=………….<br>    ………….<br>}.call())<br></pre><br>②用（）只将函数体包起来</p>
-<p><pre><br>  (function(){<br>    var  partent=………….<br>    ………….<br>}).call()<br></pre><br>③前面加一个   + 或 - 或 ! 或 ~</p>
-<p><pre><br>+function(){<br>    var  partent=1<br>    ………….<br>}.call()<br></pre></p>
-<p><pre><br>-function(){<br>    var  partent=1<br>    ………….<br>}.call()<br></pre></p>
-<p><pre><br>!function(){<br>    var  partent=1<br>    ………….<br>}.call()<br></pre></p>
-<p><pre><br>~function(){<br>    var  partent=1<br>    ………….<br>}.call()<br></pre><br>④JS很傻逼，连用个局部变量都这么麻瓜，迫切需要升级，于是let来了，用花括号{}包起来。（es6才有，2015年）</p>
-<p><pre><br>{<br>let  parent = 1<br>}<br></pre><br>这样就没关系了！let不会变量提升，就不会覆盖原来的变量了。</p>
+      		<p>简单来说要自己实现一个类似jQuery的API只需要下面的几个步骤：<br>步骤一、<br>封装一个函数</p>
+<pre>
+function getSiblings(node){}
+</pre>>
+再封装一个
+<pre>
+function addClass(node, classes){}
+</pre>
+步骤二、
+命名空间
+<pre>
+var dom = {}
+dom.getSiblings(node)
+dom.addClass(node, {a: true, b: false})
+</pre>
+步骤三、
+能不能把 node 放在前面
+<pre>
+node.getSiblings()
+node.addClass()
+</pre>
+方法一：扩展 Node 接口
+直接在 Node.prototype 上加函数
+方法二：新的接口 BetterNode
+<pre>
+ function Node2(node){
+     return {
+         element: node,
+         getSiblings: function(){
+
+         },
+         addClass: function(){
+
+         }
+     }
+ }
+ let node =document.getElementById('x')
+ let node2 = Node2(node)
+ node2.getSiblings()
+ node2.addClass()
+</pre>
+第二种叫做「无侵入」。
+
+步骤四、
+把 Node2 改个名字吧
+<pre>
+function jQuery(node){
+    return {
+        element: node,
+        getSiblings: function(){
+
+        },
+        addClass: function(){
+
+        }
+    }
+}
+let node =document.getElementById('x')
+let node2 =jQuery(node)
+node2.getSiblings()
+node2.addClass()
+</pre>
+步骤五、
+再给个缩写吧 alias
+<pre>
+window.$ = jQuery
+</pre>
+改进一：改掉 document.getElementById
+改进二：接受多个 node
+改进三：添加 .html() .text() .css() 等
+jQuery 不过如此？
+jQuery 在兼容性方面做得很好，1.7 版本兼容到 IE 6
+jQuery 还有动画、AJAX 等模块，不止 DOM 操作
+jQuery 的功能更丰富
+jQuery 使用了 prototype，
+
+OK，现在已经了解 jQuery 了。
+
+
+<h3>上面的实现过程：</h3>
+
+我们先思考一个问题：用DOM API 获取一个元素的兄弟姐妹元素应该怎么做？
+代码如下：
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;自己实现一个jQuery的API&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li id="item1"&gt;选项1&lt;/li&gt;
+    &lt;li id="item2"&gt;选项2&lt;/li&gt;
+    &lt;li id="item3"&gt;选项3&lt;/li&gt;
+    &lt;li id="item4"&gt;选项4&lt;/li&gt;
+    &lt;li id="item5"&gt;选项5&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;script&gt;
+    var allChildren = item3.parentNode.children
+    var array = {
+      length: 0
+    }
+    for (let i = 0; i &lt; allChildren.length; i++) {
+      if (allChildren[i] !== item3) {
+        array[array.length] = allChildren[i]
+        array.length += 1
+
+      }
+    }
+    console.log(array)
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+<p>接下来封装一下，所谓封装就是起个名字，写个函数：</p>
+<pre>
+function getSiblings(node) { /*这就是一个API*/
+  var allChildren = node.parentNode.children
+  var array = {
+  length:0
+}
+for (let i = 0; i &lt; allChildren.length; i++){
+  if(allChildren[i] !== node){
+    array[array.length] = allChildren[i]
+    array.length +=1
+
+    }
+  }
+  return array
+}
+
+console.log(getSiblings(item3))
+</pre>
+
+<p>好啦自己写的一个API已经可以正常使用了！</p>
+<p>然后再写一个添加class的API<br>封装一个函数：</p>
+<pre>
+function addClass(node, classes){}
+</pre>
+如果我们要给item3添加三个class，分别是a,b,c应该怎么做呢：
+<pre>
+item3.classList.add('a')
+item3.classList.add('b')
+item3.classList.add('c')
+</pre>
+
+<p>这代码也太丑了！有没有简洁的方法呢：</p>
+<pre>
+var classes = ['a','b','c']
+classes.forEach((value)=&gt; item3.classList.add(value))
+</pre>
+能不能做到既能add又能remove呢？用哈希来做：
+<pre>
+var classes = {'a':true,'b':false,'c':true}
+
+for(let key in classes){
+  var value = classes[key]
+  if(value){
+    item3.classList.add(key)
+  }else{
+    item3.classList.remove(key)
+  }
+}
+</pre> 
+
+<p>接下来封装一下：</p>
+<pre>
+function addClass(node,classes){
+   /* var classes = {'a':true,'b':false,'c':true} */
+
+  for(let key in classes){
+    var value = classes[key]
+    if(value){
+      node.classList.add(key)
+    }else{
+      node.classList.remove(key)
+    }
+  }
+}
+
+addClass(item3,{'a': true, 'b': false, 'c': true})
+</pre>
+
+
+<p>完整代码如下：</p>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;自己实现一个jQuery的API&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;ul&gt;
+    &lt;li id="item1"&gt;选项1&lt;/li&gt;
+    &lt;li id="item2"&gt;选项2&lt;/li&gt;
+    &lt;li id="item3"&gt;选项3&lt;/li&gt;
+    &lt;li id="item4"&gt;选项4&lt;/li&gt;
+    &lt;li id="item5"&gt;选项5&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;script&gt;
+   function getSiblings(node) {
+    var allChildren = node.parentNode.children
+    var array = {
+    length:0
+  }
+  for (let i = 0; i &lt; allChildren.length; i++) {
+    if(allChildren[i] !== node){
+      array[array.length] = allChildren[i]
+      array.length += 1
+
+      }
+    }
+    return array
+  }
+  console.log( getSiblings(item3) )
+
+  function addClass(node,classes){
+     /* var classes = {'a':true,'b':false,'c':true} */
+
+    for(let key in classes){
+      var value = classes[key]
+      if(value){
+        node.classList.add(key)
+      }else{
+        node.classList.remove(key)
+      }
+    }
+  }
+
+  addClass(item3,{'a': true, 'b': false, 'c': true})
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+接下来把代码优化一下：
+<pre>
+function addClass(node,classes){
+   /* var classes = {'a':true,'b':false,'c':true} */
+
+  for(let key in classes){
+    var value = classes[key]
+    var methodName = value ? 'add' : 'remove'
+    node.classList.add[methodName](key)
+  }
+}
+</pre>
+这两个API就写好了。
+二、起个名字吧（命名空间）就叫jamDom
+<pre>
+function getSiblings(node) {
+  var allChildren = node.parentNode.children
+  var array = {
+  length:0
+}
+for (let i = 0; i &lt; allChildren.length; i++) {
+  if(allChildren[i] !== node){
+    array[array.length] = allChildren[i]
+    array.length += 1
+
+    }
+  }
+  return array
+}
+
+function addClass(node,classes){
+  classes.forEach( (value)=&gt; node.classList.add(value) )
+}
+
+window.jamDom = {}
+jamDom.getSiblings = getSiblings
+jamDom.addClass = addClass
+
+jamDom.getSiblings(item3)
+jamDOm.addClass(item3 , ['a','b','c'])
+</pre>
+
+<p>再优化一下：</p>
+<pre>
+window.jamDom = {}
+jamDom.getSiblings = function (node) {
+  var allChildren = node.parentNode.children
+  var array = {
+  length:0
+}
+for (let i = 0; i &lt; allChildren.length; i++) {
+  if(allChildren[i] !== node){
+    array[array.length] = allChildren[i]
+    array.length += 1
+
+    }
+  }
+  return array
+}
+
+jamDom.addClass = function (node,classes){
+  classes.forEach( (value)=&gt; node.classList.add(value) )
+}
+
+
+jamDom.getSiblings(item3)
+jamDOm.addClass(item3 , ['a','b','c'])
+</pre>
+
+<p>如果我们想要用  </p>
+<pre>
+item3.getSiblings()  
+item3.addClass( ['a','b','c'] )
+</pre>
+这种形式，应该怎么做呢？
+
+有两种方法，
+方法一：直接改node的原型
+<pre>
+Node.prototype.getSiblings = function () {
+  var allChildren = this.parentNode.children
+  var array = {
+  length:0
+}
+for (let i = 0; i &lt; allChildren.length; i++) {
+  if(allChildren[i] !== this) {
+    array[array.length] = allChildren[i]
+    array.length += 1
+
+    }
+  }
+  return array
+}
+Node.prototype.addClass = function (classes){
+  classes.forEach( (value)=&gt; this.classList.add(value) )
+}
+
+console.log(item3.getSiblings())
+item3.addClass(['a','b','c'])
+
+//用call更加直观的了解
+//item3.getSiblings.call(item3)
+//item3.addClass.call(item3,['a','b','c'])
+</pre>
+
+<p>方法二，不要改Node原型，</p>
+<pre>
+window.jQuery = function (node){
+  return{
+    getSiblings: function(){
+      var allChildren = node.parentNode.children
+      var array = {
+        length:0
+       }
+      for (let i = 0; i &lt; allChildren.length; i++){
+        if(allChildren[i] !== node) {
+          array[array.length] = allChildren[i]
+          array.length += 1
+        }
+      }
+    return array
+   },
+    addClass: function(){
+      classes.forEach( (value)=&gt; node.classList.add(value) )
+    }
+  }
+}
+
+var node2 = jQuery(item3)
+node2.getSiblings()
+node2.addClass()
+</pre>
+
+<p><a href="http://note.youdao.com/noteshare?id=9af7213006369a53a1ec41b1e2271f63" target="_blank" rel="noopener">有道云笔记地址：</a></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2018/01/02/自己实现一个jQuery的API/" style="float: left;">
-        ← 自己实现一个jQuery的API
-    </a>
     
-    
-    <a class="pull-right" href="/2017/12/09/关于CSS居中/">
-        关于CSS居中 →
+    <a class="pull-right" href="/2017/12/15/关于JS的局部变量/">
+        关于JS的局部变量的使用 →
     </a>
     
 </nav>
