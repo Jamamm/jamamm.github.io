@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2018 | Hello World</title>
+  <title>自己实现一个轮播 | Hello World</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -164,78 +164,46 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/07/自己实现一个轮播/">自己实现一个轮播</a></h4>
-                            
-                            <p><time datetime="2018-01-06T17:20:00.000Z"><a href="/2018/01/07/自己实现一个轮播/">2018-01-07</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/01/02/自己实现一个jQuery的API/">自己实现一个jQuery的API</a></h4>
-                            
-                            <p><time datetime="2018-01-02T14:36:47.000Z"><a href="/2018/01/02/自己实现一个jQuery的API/">2018-01-02</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-01-06T17:20:00.000Z" itemprop="datePublished">
+          2018-01-07
+      </time>
+    
+</span>
+                <h1>自己实现一个轮播</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h4 id="用jQuery自己实现一个轮播："><a href="#用jQuery自己实现一个轮播：" class="headerlink" title="用jQuery自己实现一个轮播："></a>用jQuery自己实现一个轮播：</h4><p><strong>轮播的实现原理：让当前窗口显示当前图片，其他图片隐藏（overflow: hidden;），通过改变transform: ‘translate( 0px)’的值来实现图片切换。</strong></p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> allButtons = $(<span class="string">'#buttons &gt; span'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; allButtons.length; i++) &#123;</span><br><span class="line">      $(allButtons[i]).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> index = $(x.currentTarget).index()</span><br><span class="line">        <span class="keyword">var</span> p = index * <span class="number">-400</span></span><br><span class="line">        $(<span class="string">'#images'</span>).css(&#123;</span><br><span class="line">          transform: <span class="string">'translate('</span> + p + <span class="string">'px)'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        n = index</span><br><span class="line">        activeButton(allButtons.eq(n))</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> size = allButtons.length</span><br><span class="line">    allButtons.eq(n % size).trigger(<span class="string">'click'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> timerId = setTimer()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setTimer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        allButtons.eq(n % size).trigger(<span class="string">'click'</span>)</span><br><span class="line">      &#125;, <span class="number">3000</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">activeButton</span>(<span class="params">$button</span>) </span>&#123;</span><br><span class="line">      $button</span><br><span class="line">        .addClass(<span class="string">'red'</span>)</span><br><span class="line">        .siblings(<span class="string">'.red'</span>).removeClass(<span class="string">'red'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $(<span class="string">'.window'</span>).on(<span class="string">'mouseenter'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">window</span>.clearInterval(timerId)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    $(<span class="string">'.window'</span>).on(<span class="string">'mouseleave'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      timerId = setTimer()</span><br><span class="line">    &#125;)</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://dengjian.space/demos/Swiper-demo/Swiper1.html" title="预览链接">预览链接</a></p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>自律才自由。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/01/02/自己实现一个jQuery的API/">
+        自己实现一个jQuery的API →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
