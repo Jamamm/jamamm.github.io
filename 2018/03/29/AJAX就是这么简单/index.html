@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>AJAX就是这么简单 | Hello World</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Hello World">
+    <meta name="author" content="Jamamm">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://www.ruanyifeng.com/home.html" class="animsition-link">阮一峰的博客</a></li>
+                    
+                    <li><a href="http://www.zhangxinxu.com/" class="animsition-link">张鑫旭的博客</a></li>
+                    
+                    <li><a href="https://developer.mozilla.org/zh-CN/" class="animsition-link">MDN Web Docs</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Hello World</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/Jamamm" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="https://weibo.com/5399009557/profile?topnav=1&wvr=6" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-03-29T14:33:53.000Z" itemprop="datePublished">
+          2018-03-29
+      </time>
+    
+</span>
+                <h1>AJAX就是这么简单</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h4 id="如何发请求？"><a href="#如何发请求？" class="headerlink" title="如何发请求？"></a>如何发请求？</h4><p>用 form 可以发请求，但是会刷新页面或新开页面<br>用 a 可以发 get 请求，但是也会刷新页面或新开页面<br>用 img 可以发 get 请求，但是只能以图片的形式展示<br>用 link 可以发 get 请求，但是只能以 CSS、favicon 的形式展示<br>用 script 可以发 get 请求，但是只能以脚本的形式运行</p>
+<p>有没有什么方式可以实现:<br>get、post、put、delete 请求都行<br>想以什么形式展示就以什么形式展示</p>
+<h4 id="微软的突破"><a href="#微软的突破" class="headerlink" title="微软的突破"></a>微软的突破</h4><p>IE 5 率先在 JS 中引入 ActiveX 对象（API），使得 JS 可以直接发起 HTTP 请求。<br>随后 Mozilla、 Safari、 Opera 也跟进（抄袭）了，取名 XMLHttpRequest，并被纳入 W3C 规范</p>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4><p>基本概念:<br> AJAX = <strong>Asynchronous JavaScript and XML</strong>（异步的 JavaScript 和 XML）。<br> Ajax主要是客户端与服务器交换数据的一种技术，它有2个主要功能：<br>向服务器发出请求，而不重新加载页面<br>接受和处理服务器返回的数据</p>
+<h5 id="如何发送HTTP请求？"><a href="#如何发送HTTP请求？" class="headerlink" title="如何发送HTTP请求？"></a>如何发送HTTP请求？</h5><p><strong>第一步：</strong>需要创建一个XMLHttpRequest 对象，它是浏览器和服务器之间数据交换的桥梁。<br>语法: <code>var request=new XMLHttpRequest();</code></p>
+<p><strong>第二步：</strong>使用 XMLHttpRequest 对象的 open() 和 send() 方法将请求发送到服务器。<br><code>XMLHttpRequest.open(&quot;GET&quot;,&quot;test1.txt&quot;,true);</code><br><code>XMLHttpRequest.send();</code></p>
+<p><strong>两个方法：</strong><br>open(method,url,async)，规定请求的类型、URL 以及是否异步处理请求。<br>method：请求的类型；GET 或 POST<br>url：文件在服务器上的位置<br>async：true（异步）或 false（同步）</p>
+<p>send(string)，将请求发送到服务器。</p>
+<h5 id="GET-还是-POST？"><a href="#GET-还是-POST？" class="headerlink" title="GET 还是 POST？"></a>GET 还是 POST？</h5><p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。<br>然而，在以下情况中，请使用 POST 请求：<br>无法使用缓存文件（更新服务器上的文件或数据库）<br>向服务器发送大量数据（POST 没有数据量限制）<br>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</p>
+<h5 id="服务器响应"><a href="#服务器响应" class="headerlink" title="服务器响应"></a>服务器响应</h5><p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。<br>responseText：获得字符串形式的响应数据。<br>responseXML：获得 XML 形式的响应数据。</p>
+<h5 id="处理服务器响应"><a href="#处理服务器响应" class="headerlink" title="处理服务器响应"></a>处理服务器响应</h5><p>在处理服务器返回的数据之前，我们首先要知道服务器处理请求的状态（是已经返回数据还是处理出错了）。<br>XMLHttpRequest 对象的readyState属性，就是用来标识当前XMLHttpRequest对象处于什么状态的。它有5个状态，如下：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>UNSENT</td>
+<td>未初始化状态：此时，已经创建了一个XMLHttpRequest对象</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED</td>
+<td>准备发送状态：此时，已经调用了XMLHttpRequest对象的open方法，并且XMLHttpRequest对象已经准备好将一个请求发送到服务器端</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED</td>
+<td>已经发送状态：此时，已经通过send方法把一个请求发送到服务器端，但是还没有收到一个响应</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING</td>
+<td>正在接收状态：此时，已经接收到HTTP响应头部信息，但是消息体部分还没有完全接收到</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE</td>
+<td>完成响应状态：此时，已经完成了HTTP响应的接收</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (httpRequest.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">  <span class="comment">// 一切都很好，收到回复</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 还没准备好</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来我们就要根据服务器不同的响应执行不同的任务。每当 readyState 改变时，会触发 onreadystatechange 事件。onreadystatechange事件存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。<br>最后，我们还要检查HTTP服务器响应的响应代码，status表示响应的HTTP状态码，它也是XMLHttpRequest对象的一个属性。<br> status的状态码可以在网上找到，如200表示请求成功.</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>响应类别</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1XX</td>
+<td>信息性状态码（Informational）</td>
+<td>服务器正在处理请求</td>
+</tr>
+<tr>
+<td>2XX</td>
+<td>成功状态码（Success）</td>
+<td>请求已正常处理完毕</td>
+</tr>
+<tr>
+<td>3XX</td>
+<td>重定向状态码（Redirection）</td>
+<td>需要进行额外操作以完成请求</td>
+</tr>
+<tr>
+<td>4XX</td>
+<td>客户端错误状态码（Client Error）</td>
+<td>客户端原因导致服务器无法处理请求</td>
+</tr>
+<tr>
+<td>5XX</td>
+<td>服务器错误状态码（Server Error）</td>
+<td>服务器原因导致处理请求出错</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (httpRequest.status === <span class="number">200</span>) &#123;</span><br><span class="line">  <span class="comment">// 完美!</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 有一个问题的请求</span></span><br><span class="line">  <span class="comment">//例如响应可能包含404（找不到）</span></span><br><span class="line">  <span class="comment">//或500（内部服务器错误）响应代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，在检查请求的状态和响应的HTTP状态代码后，您可以根据需要对服务器发送给您的数据进行任何操作<br>在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) ｛</span></span><br><span class="line"><span class="function">  <span class="title">if</span> (<span class="params">httpRequest.readyState === <span class="number">4</span> &amp;&amp; httpRequest.status === <span class="number">200</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 要执行的任务 </span></span><br><span class="line">  &#125; </span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+<h5 id="如何使用-XMLHttpRequest-代码"><a href="#如何使用-XMLHttpRequest-代码" class="headerlink" title="如何使用 XMLHttpRequest ? 代码:"></a>如何使用 XMLHttpRequest ? 代码:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">myButton.addEventListener(<span class="string">'click'</span>, (e)=&gt;&#123;</span><br><span class="line">  <span class="keyword">let</span> request = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  request.open(<span class="string">'get'</span>, <span class="string">'/xxx'</span>) <span class="comment">// 配置request</span></span><br><span class="line">  request.send()</span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'请求响应都完毕了'</span>)</span><br><span class="line">      <span class="built_in">console</span>.log(request.status)</span><br><span class="line">      <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'说明请求成功'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">typeof</span> request.responseText)</span><br><span class="line">        <span class="built_in">console</span>.log(request.responseText)</span><br><span class="line">        <span class="keyword">let</span> string = request.responseText</span><br><span class="line">        <span class="comment">// 把符合 JSON 语法的字符串</span></span><br><span class="line">        <span class="comment">// 转换成 JS 对应的值</span></span><br><span class="line">        <span class="keyword">let</span> object = <span class="built_in">window</span>.JSON.parse(string) </span><br><span class="line">        <span class="comment">// JSON.parse 是浏览器提供的</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">typeof</span> object)</span><br><span class="line">        <span class="built_in">console</span>.log(object)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'object.note'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(object.note)</span><br><span class="line"></span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'说明请求失败'</span>) </span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 后端代码</span></span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(path===<span class="string">'/xxx'</span>)&#123;</span><br><span class="line">    response.statusCode = <span class="number">200</span></span><br><span class="line">    response.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/json;charset=utf-8'</span>)</span><br><span class="line">    response.setHeader(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'http://frank.com:8001'</span>)</span><br><span class="line">    response.write(<span class="string">`</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">      "note":&#123;</span></span><br><span class="line"><span class="string">        "to": "小谷",</span></span><br><span class="line"><span class="string">        "from": "方方",</span></span><br><span class="line"><span class="string">        "heading": "打招呼",</span></span><br><span class="line"><span class="string">        "content": "hi"</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    `</span>)</span><br><span class="line">    response.end()</span><br></pre></td></tr></table></figure>
+<p>jQuery将这些封装好写成函数 $.ajax()  大大简化了ajax的使用, 并且提高了兼容性,</p>
+<h5 id="使用实例"><a href="#使用实例" class="headerlink" title="使用实例:"></a>使用实例:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drugRecover</span>(<span class="params">drugId</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> recoverUrl= <span class="string">"$&#123;ctx.contextPath&#125;/drug/drugRecover"</span>;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type: <span class="string">'POST'</span>,</span><br><span class="line">                url: recoverUrl,</span><br><span class="line">                dataType: <span class="string">'json'</span>,</span><br><span class="line">                data: &#123;</span><br><span class="line">                    drugId: drugId</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">                <span class="comment">//console.log(res);</span></span><br><span class="line">                <span class="comment">// 重新获取页面数据</span></span><br><span class="line">                <span class="keyword">var</span> curPageNo = tblContent.find(<span class="string">'ul.pagination li.active'</span>).attr(<span class="string">"yy_page"</span>);</span><br><span class="line">                getData(curPageNo);</span><br><span class="line">                <span class="comment">//item.prop("disabled", false);</span></span><br><span class="line">                $(<span class="string">'#yy_Modal'</span>).modal(<span class="string">'hide'</span>);</span><br><span class="line"></span><br><span class="line">            &#125;).fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                alert(<span class="string">"fail"</span>);</span><br><span class="line">            &#125;); <span class="comment">// end ajax</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>ajax就是这样了~~~</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2018/03/28/固定表格头部和货币展示/">
+        固定表格头部和货币展示 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+
+
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Jamamm. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/Jamamm" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://weibo.com/5399009557/profile?topnav=1&wvr=6" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      (function(){
+        console.log('font');
+        var getCss = function(path) {
+          var head = document.getElementsByTagName('head')[0];
+          link = document.createElement('link');
+          link.href = path;
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          head.appendChild(link);
+        };
+        getCss('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+        getCss('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+      })();
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
